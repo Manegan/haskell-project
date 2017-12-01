@@ -18,5 +18,6 @@ main = do
   let filename = "wedgeAnnulus.bmp"                   -- bitmap filename
   BMP.write filename bmp                              -- write wedgeAnnulus.bmp to disk
 ```
+![GitHub Logo](/images/wedgeAnnulus.bmp)
 
 ## Boolean image (aka Region) Algebra
