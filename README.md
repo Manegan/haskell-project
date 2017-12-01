@@ -219,7 +219,7 @@ uScale :: Float -> Transform
 -- (x cos(t) - y sint(t), x sin(t) + y cos(t)).
 rotate :: Float -> Transform
 ```
-The following functions (see `FImage` in `src`):
+The following functions (see testing program `FImage` in `src`):
 ```haskell
 translateUSquare :: (String, BImage.BImage)
 translateUSquare = ("translateUSquare.bmp",  BImage.Generator.uSquare . Transform.translate v)
@@ -250,6 +250,7 @@ rotateUSquare :: (String, BImage.BImage)
 rotateUSquare = ("rotateUSquare.bmp",  BImage.Generator.uSquare . Transform.rotate (pi/4))
 ```
 produce the following images:
+
 ![translateUSquare](/images/translateUSquare.bmp)
 ![hTranslateUSquare](/images/hTranslateUSquare.bmp)
 ![vTranslateUSquare](/images/vTranslateUSquare.bmp)
