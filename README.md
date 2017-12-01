@@ -3,9 +3,13 @@ Functional Image (squeleton)
 
 ##
 
-```bash
-$ git clone git@github.com:your-name/fimage.git
-$ cd fimage 
+```sh
+> git clone git@github.com:your-name/fimage.git
+> cd fimage
+> cabal sandbox init
+> cabal install
+> ./.cabal-sandbox/bin/fimage
+```
 
 ## Introduction
 
