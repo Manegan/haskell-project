@@ -317,7 +317,7 @@ produce the following bitmaps (display parameters `View.mk0 6 6` and
 `Window.mk 256 256`):
 
 ![translateUSquareTransform](/images/translateUSquareTransform.bmp)
-![hTranslateUSquareTransform](/images/hTranslateUSquare.Transformbmp)
+![hTranslateUSquareTransform](/images/hTranslateUSquareTransform.bmp)
 ![vTranslateUSquareTransform](/images/vTranslateUSquareTransform.bmp)
 ![scaleUSquareTransform](/images/scaleUSquareTransform.bmp)
 ![hScaleUSquareTransform](/images/hScaleUSquareTransform.bmp)
