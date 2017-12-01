@@ -150,13 +150,6 @@ vStrip :: Float -> BImage.BImage
 -- | Infinitely horizontal strip of unit width.
 uVStrip :: BImage.BImage
 
--- | Infinitely diagonal strip of given width.
-diag :: Float -> BImage.BImage
-
--- | Infinitely diagonal strip of unit width.
-uDiag :: BImage.BImage
-uDiag = diag 1
-
 -- | Checker of unit width.
 checker :: BImage.BImage
 
@@ -174,7 +167,26 @@ square :: Float -> BImage.BImage
 
 -- | Square of unit length.
 uSquare :: BImage.BImage
+
+-- | Polar checker. The parameter determines the number of alternations, and
+-- hence is twice the number of slices.
+-- For a cartesian point (x, y), convert to polar point (t', r') and convert
+-- back to a cartesian point (r, t * n + pi) and use checker function.
+polarChecker :: Float -> BImage.BImage
 ```
+Obtained bitmap images are (with `View.mk0 7 7` and `Window.mk 256 256`):
+
+![hStrip](/images/hStrip.bmp)
+![uHStrip](/images/uHStrip.bmp)
+![vStrip](/images/vStrip.bmp)
+![uVStrip](/images/uVStrip.bmp)
+![checker](/images/checker.bmp)
+![altRings](/images/altRings.bmp)
+![disk](/images/disk.bmp)
+![uDisk](/images/uDisk.bmp)
+![square](/images/square.bmp)
+![uSquare](/images/uSquare.bmp)
+![polarChecker](/images/polarChecker.bmp)
 
 ####
 
