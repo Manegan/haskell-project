@@ -252,12 +252,19 @@ rotateUSquare = ("rotateUSquare.bmp",  BImage.Generator.uSquare . Transform.rota
 produce the following images:
 
 ![translateUSquare](/images/translateUSquare.bmp)
+
 ![hTranslateUSquare](/images/hTranslateUSquare.bmp)
+
 ![vTranslateUSquare](/images/vTranslateUSquare.bmp)
+
 ![scaleUSquare](/images/scaleUSquare.bmp)
+
 ![hScaleUSquare](/images/hScaleUSquare.bmp)
+
 ![vScaleUSquare](/images/vScaleUSquare.bmp)
+
 ![uScaleUSquare](/images/uScaleUSquare.bmp)
+
 ![rotateUSquare](/images/rotateUSquare.bmp)
 
 ,
