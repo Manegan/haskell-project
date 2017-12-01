@@ -1,6 +1,7 @@
 # fimage-squeleton
 Functional Image (squeleton)
 
+## Example
 
 ```haskell
 import qualified Data.FImage.BImage.Generator as BImage.Generator
@@ -17,3 +18,5 @@ main = do
   let filename = "wedgeAnnulus.bmp"                   -- bitmap filename
   BMP.write filename bmp                              -- write wedgeAnnulus.bmp to disk
 ```
+
+## Boolean image (aka Region) Algebra
