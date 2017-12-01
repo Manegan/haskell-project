@@ -1,6 +1,12 @@
 # fimage-squeleton
 Functional Image (squeleton)
 
+##
+
+```bash
+$ git clone git@github.com:your-name/fimage.git
+$ cd fimage 
+
 ## Introduction
 
 *Boolean images* (also called *regions*) are simply functions from infinite 2D
@@ -238,20 +244,30 @@ The type `Transform` is defined in module `Data.FImage.Transform` as follows:
 
 ```haskell
 import qualified Data.FImage.Geometry.Point  as Point
-
--- | Spatial transformation type definition
-type Transform = Point.Point -> Point.Point
 ```
+
 **Define the following functions in `Data.FImage.Transform`**:
+
 ```haskell
 type Transform = Point.Point -> Point.Point
 
--- |
 -- | Translate according to a given vector (dx, dy).
 translate :: Vector.Vector -> Transform
 
+-- | Horizontal translate according to a given float.
+hTranslate :: Float -> Transform
+
+-- | Vertical translate according to a given float.
+vTranslate :: Float -> Transform
+
 -- | Scale according to a given vector (dx, dy).
 scale :: Vector.Vector -> Transform
+
+-- | Horizontal translate according to a given float.
+hScale :: Float -> Transform
+
+-- | Vertical translate according to a given float.
+vScale :: Float -> Transform
 
 -- | Scale according to a given vector (dx, dy) with dx = dy.
 uScale :: Float -> Transform
@@ -261,7 +277,9 @@ uScale :: Float -> Transform
 -- (x cos(t) - y sint(t), x sin(t) + y cos(t)).
 rotate :: Float -> Transform
 ```
+
 The following functions (see testing program `FImage` in `src`):
+
 ```haskell
 translateUSquareTransform :: (String, BImage.BImage)
 translateUSquareTransform = ("translateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.translate v)
@@ -346,4 +364,4 @@ produce the following images:
 ![uScaleUSquareFilter](/images/uScaleUSquareFilter.bmp)
 ![rotateUSquareFilter](/images/rotateUSquareFilter.bmp)
 
-### Boolean image (aka Region) Algebra
+## Boolean image (aka Region) Algebra
