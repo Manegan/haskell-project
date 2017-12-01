@@ -3,10 +3,10 @@ Functional Image (squeleton)
 
 
 ```haskell
-import qualified Data.FImage.BMP    as BMP
 import qualified Data.FImage.BImage.Generator as BImage.Generator
-import qualified Data.FImage.View   as View
-import qualified Data.FImage.Window as Window
+import qualified Data.FImage.BMP              as BMP
+import qualified Data.FImage.View             as View
+import qualified Data.FImage.Window           as Window
 
 main :: IO ()
 main = do
