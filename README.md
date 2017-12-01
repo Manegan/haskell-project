@@ -1,6 +1,18 @@
 # fimage-squeleton
 Functional Image (squeleton)
 
+## Introduction
+
+*Boolean images* are simply functions from infinite 2D spaces to black and white
+colors with opacity.
+
+Module `Data.FImage.BImage` defines type `BImage`as follows:
+```haskell
+type BImage = Point.Point -> Bool
+```
+where `Point` is the type of Cartesian coordinates (defined in
+`Data.FImage.Geometry.Point`). 
+
 ## Example
 
 ```haskell
@@ -18,6 +30,9 @@ main = do
   let filename = "wedgeAnnulus.bmp"                   -- bitmap filename
   BMP.write filename bmp                              -- write wedgeAnnulus.bmp to disk
 ```
+
+The above program produces the following bmp images (wedgeAnnulus.bmp).
+
 ![GitHub Logo](/images/wedgeAnnulus.bmp)
 
 ## Boolean image (aka Region) Algebra
