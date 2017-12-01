@@ -173,7 +173,47 @@ uSquare :: BImage.BImage
 -- back to a cartesian point (r, t * n + pi) and use checker function.
 polarChecker :: Float -> BImage.BImage
 ```
-Obtained bitmap images are (with display parameters `View.mk0 8 8` and
+
+The following functions (see testing program `FImage` in `src`):
+```haskell
+hStrip :: (String, BImage.BImage)
+hStrip = ("hStrip.bmp",   BImage.Generator.hStrip 2)
+
+uHStrip :: (String, BImage.BImage)
+uHStrip = ("uHStrip.bmp",  BImage.Generator.uHStrip)
+
+vStrip :: (String, BImage.BImage)
+vStrip = ("vStrip.bmp",   BImage.Generator.vStrip 2)
+
+uVStrip :: (String, BImage.BImage)
+uVStrip = ("uHStrip.bmp",  BImage.Generator.uVStrip)
+
+cross :: (String, BImage.BImage)
+cross = ("cross.bmp",  BImage.Generator.cross 2)
+
+checker :: (String, BImage.BImage)
+checker = ("checker.bmp",  BImage.Generator.checker)
+
+altRings :: (String, BImage.BImage)
+altRings = ("altRings.bmp", BImage.Generator.altRings)
+
+disk :: (String, BImage.BImage)
+disk = ("disk.bmp",     BImage.Generator.disk 2)
+
+uDisk :: (String, BImage.BImage)
+uDisk = ("uDisk.bmp",    BImage.Generator.uDisk)
+
+square :: (String, BImage.BImage)
+square = ("square.bmp",   BImage.Generator.square 2)
+
+uSquare :: (String, BImage.BImage)
+uSquare = ("uSquare.bmp",  BImage.Generator.uSquare)
+
+polarChecker :: (String, BImage.BImage)
+polarChecker = ("polarChecker.bmp", BImage.Generator.polarChecker 7)
+```
+
+produce the following bitmaps (display parameters `View.mk0 6 6` and
 `Window.mk 256 256`):
 
 ![hStrip](/images/hStrip.bmp)
@@ -250,7 +290,8 @@ uScaleUSquareTransform = ("uScaleUSquareTransform.bmp",  BImage.Generator.uSquar
 rotateUSquareTransform :: (String, BImage.BImage)
 rotateUSquareTransform = ("rotateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.rotate (pi/4))
 ```
-produce the following images:
+produce the following bitmaps (display parameters `View.mk0 6 6` and
+`Window.mk 256 256`):
 
 ![translateUSquareTransform](/images/translateUSquareTransform.bmp)
 ![hTranslateUSquareTransform](/images/hTranslateUSquare.Transformbmp)
