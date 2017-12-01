@@ -15,5 +15,5 @@ main = do
   let window   = Window.mk 512 512                    -- render a 512x512 bitmap image
   let bmp      = BMP.bmp window view image            -- generate a Codec.BMP.BMP bitmap image
   let filename = "wedgeAnnulus.bmp"                   -- bitmap filename
-  BMP.write filename bmp
+  BMP.write filename bmp                              -- write wedgeAnnulus.bmp to disk
 ```
