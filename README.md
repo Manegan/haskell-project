@@ -58,36 +58,57 @@ The above program produces the following bmp images (wedgeAnnulus.bmp).
 
 ### Geometry
 
-#### Points (module `Data.FImage.Geometry.Point`)
+#### Points
 
+The module `Data.FImage.Geometry.Point` defines the `Point` type as follows
 ```haskell
-module Data.FImage.Geometry.Point
-(
-  -- * type
-  Point(..)
-
-  -- * constructing
-, mk
-, mk2
-)
-where
-
-  -- | type definition
-  data Point = Point { x :: Float, y :: Float }
-               deriving (Show, Eq, Ord)
-
-  -- | Make a point '(x, y)'' from two floats 'x' and 'y'.
-  mk :: Float -> Float -> Point
-  mk px py = Point { x = px, y = py }
-
-  -- | Make a point '(x, y)'' from two floats 'x' and 'y'.
-  mk2 :: Float -> Point
-  mk2 z = mk z z
+data Point = Point { x :: Float, y :: Float }
+             deriving (Show, Eq, Ord)
 ```
+and provides two construction functions `mk`and `mk2`.
 
-#### Polar points (module `Data.FImage.Geometry.PolarPoint`)
+#### Polar points
 
-#### Vectors (module `Data.FImage.Geometry.Vector`)
+The module `Data.FImage.Geometry.PolarPoint` defines the `PolarPoint` type as follows.
+```haskell
+data PolarPoint = PolarPoint { rho :: Float, theta :: Float }
+                  deriving (Show, Eq, Ord)
+```
+together with a convenient construction function `mk`.
+
+#### Vectors (**to be completed**)
+
+The module `Data.FImage.Geometry.Vector` defined the `Vector` type as follows.
+```haskell
+data Vector = Vector { dx :: Float, dy :: Float }
+              deriving (Show, Eq, Ord)
+```
+**Define the following functions**:
+```haskell
+-- | Make a vector (dx, dy) from two floats `dx`and `dy`.
+mk :: Float -> Float -> Vector
+
+-- | Make a vector '(dz, dz)'' from a float 'dz'.
+mk2 :: Float -> Vector
+
+-- | Make the vector (-dx, dy) from vector (dx, dy).
+revX :: Vector -> Vector
+
+-- | Make the vector (dx, -dy) from vector (dx, dy).
+revY :: Vector -> Vector
+
+-- | Make the vector (-dx, -dy) from vector (dx, dy).
+revXY :: Vector -> Vector
+
+-- | Make the vector (1/dx, dy) from vector (dx, dy).
+invX :: Vector -> Vector
+
+-- | Make the vector (dx, 1/dy) from vector (dx, dy).
+invY :: Vector -> Vector
+
+-- | Make the vector (1/dx, 1/dy) from vector (dx, dy).
+invXY :: Vector -> Vector
+```
 
 #### Basic functions
 
