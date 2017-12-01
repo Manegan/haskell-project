@@ -22,7 +22,7 @@ As a first example, consider the (infinite) checkered region:
 
 The trick is to take the floor of the pixel coordinates and test whether the sum
 is even or odd. Whenever ```x``` or ```y``` passes an integer value, the parity
-changes.
+changes. (Function ```checker```is defined in `Data.FImage.BImage.Generator`).
 
 ```haskell
 checker :: BImage.BImage
