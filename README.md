@@ -56,7 +56,6 @@ The above program produces the following bmp images (wedgeAnnulus.bmp).
 
 ## Modules
 
-
 ### Points
 
 The module `Data.FImage.Geometry.Point` defines the `Point` type as follows
@@ -174,7 +173,8 @@ uSquare :: BImage.BImage
 -- back to a cartesian point (r, t * n + pi) and use checker function.
 polarChecker :: Float -> BImage.BImage
 ```
-Obtained bitmap images are (with `View.mk0 7 7` and `Window.mk 256 256`):
+Obtained bitmap images are (with display parameters `View.mk0 8 8` and
+`Window.mk 256 256`):
 
 ![hStrip](/images/hStrip.bmp)
 ![uHStrip](/images/uHStrip.bmp)
@@ -188,6 +188,36 @@ Obtained bitmap images are (with `View.mk0 7 7` and `Window.mk 256 256`):
 ![uSquare](/images/uSquare.bmp)
 ![polarChecker](/images/polarChecker.bmp)
 
-####
+### Spatial transforms
+
+Spatial transforms are simply defined as space-to-space functions
+(transforms map points to points)
+The type `Transform` is defined in module `Data.FImage.Transform` as follows:
+
+```haskell
+import qualified Data.FImage.Geometry.Point  as Point
+
+-- | Spatial transformation type definition
+type Transform = Point.Point -> Point.Point
+```
+**Define the following functions in `Data.FImage.Transform`**:
+```haskell
+type Transform = Point.Point -> Point.Point
+
+-- |
+-- | Translate according to a given vector (dx, dy).
+translate :: Vector.Vector -> Transform
+
+-- | Scale according to a given vector (dx, dy).
+scale :: Vector.Vector -> Transform
+
+-- | Scale according to a given vector (dx, dy) with dx = dy.
+uScale :: Float -> Transform
+
+-- | Rotate acoording to a given angle t.
+-- For a given point (x, y) the roated point is defined by
+-- (x cos(t) - y sint(t), x sin(t) + y cos(t)).
+rotate :: Float -> Transform
+```
 
 ## Boolean image (aka Region) Algebra
