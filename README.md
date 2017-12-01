@@ -56,6 +56,7 @@ The above program produces the following bmp images (wedgeAnnulus.bmp).
 
 ## Modules
 
+
 ### Points
 
 The module `Data.FImage.Geometry.Point` defines the `Point` type as follows
@@ -130,6 +131,49 @@ fromPolar :: PolarPoint.PolarPoint -> Point.Point
 
 -- | Convert a cartesian point to a polar point.
 toPolar :: Point.Point -> PolarPoint.PolarPoint
+```
+
+### Basic boolean images (to be completed)
+
+```haskell
+import qualified Data.FImage.BImage as BImage
+
+-- | Infinitely horizontal strip of  given width.
+hStrip :: Float -> BImage.BImage
+
+-- | Infinitely horizontal strip of unit width.
+uHStrip :: BImage.BImage
+
+-- | Infinitely vertical strip of given width.
+vStrip :: Float -> BImage.BImage
+
+-- | Infinitely horizontal strip of unit width.
+uVStrip :: BImage.BImage
+
+-- | Infinitely diagonal strip of given width.
+diag :: Float -> BImage.BImage
+
+-- | Infinitely diagonal strip of unit width.
+uDiag :: BImage.BImage
+uDiag = diag 1
+
+-- | Checker of unit width.
+checker :: BImage.BImage
+
+-- | Concentric of unit width.
+altRings :: BImage.BImage
+
+-- | Disk of given radius.
+disk :: Float -> BImage.BImage
+
+-- | Disk of unit radius.
+uDisk :: BImage.BImage
+
+-- | Square of given length.
+square :: Float -> BImage.BImage
+
+-- | Square of unit length.
+uSquare :: BImage.BImage
 ```
 
 ####
