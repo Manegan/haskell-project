@@ -219,5 +219,45 @@ uScale :: Float -> Transform
 -- (x cos(t) - y sint(t), x sin(t) + y cos(t)).
 rotate :: Float -> Transform
 ```
+The following functions:
+```haskell
+translateUSquare :: (String, BImage.BImage)
+translateUSquare = ("translateUSquare.bmp",  BImage.Generator.uSquare . Transform.translate v)
+  where
+    v = Vector.mk 2 3
 
+hTranslateUSquare :: (String, BImage.BImage)
+hTranslateUSquare =  ("hTranslateUSquare.bmp",  BImage.Generator.uSquare . Transform.hTranslate 3)
+
+vTranslateUSquare :: (String, BImage.BImage)
+vTranslateUSquare =  ("vTranslateUSquare.bmp",  BImage.Generator.uSquare . Transform.vTranslate 3)
+
+scaleUSquare :: (String, BImage.BImage)
+scaleUSquare = ("scaleUSquare.bmp",  BImage.Generator.uSquare . Transform.scale v)
+  where
+    v = Vector.mk 2 3
+
+hScaleUSquare :: (String, BImage.BImage)
+hScaleUSquare = ("hScaleUSquare.bmp",  BImage.Generator.uSquare . Transform.hScale 3)
+
+vScaleUSquare :: (String, BImage.BImage)
+vScaleUSquare = ("vScaleUSquare.bmp",  BImage.Generator.uSquare . Transform.vScale 3)
+
+uScaleUSquare :: (String, BImage.BImage)
+uScaleUSquare = ("uScaleUSquare.bmp",  BImage.Generator.uSquare . Transform.uScale 2)
+
+rotateUSquare :: (String, BImage.BImage)
+rotateUSquare = ("rotateUSquare.bmp",  BImage.Generator.uSquare . Transform.rotate (pi/4))
+```
+produce the following images:
+![translateUSquare](/images/translateUSquare.bmp)
+![hTranslateUSquare](/images/hTranslateUSquare.bmp)
+![vTranslateUSquare](/images/vTranslateUSquare.bmp)
+![scaleUSquare](/images/scaleUSquare.bmp)
+![hScaleUSquare](/images/hScaleUSquare.bmp)
+![vScaleUSquare](/images/vScaleUSquare.bmp)
+![uScaleUSquare](/images/uScaleUSquare.bmp)
+![rotateUSquare](/images/rotateUSquare.bmp)
+
+,
 ## Boolean image (aka Region) Algebra
