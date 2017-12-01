@@ -3,8 +3,8 @@ Functional Image (squeleton)
 
 ## Introduction
 
-*Boolean images* are simply functions from infinite 2D spaces to black and white
-colors with opacity.
+*Boolean images* (also called *regions*) are simply functions from infinite 2D
+spaces to black and white colors with opacity.
 
 Module `Data.FImage.BImage` defines type the `BImage` as follows:
 ```haskell
@@ -14,6 +14,22 @@ where `Point` is the type of Cartesian coordinates (defined in
 `Data.FImage.Geometry.Point`):
 ```haskell
 data Point = Point { x :: Float, y :: Float } deriving (Show, Eq, Ord)
+```
+
+As a first example, consider the (infinite) checkered region:
+
+![checker](/images/checker.bmp)
+
+The trick is to take the floor of the pixel coordinates and test whether the sum
+is even or odd. Whenever ```x``` or ```y``` passes an integer value, the parity
+changes.
+
+```haskell
+checker :: BImage.BImage
+checker p = even (x' + y')
+  where
+    x' = fromIntegral . floor $ Point.x p
+    y' = fromIntegral . floor $ Point.y p
 ```
 
 ## Example
@@ -36,6 +52,6 @@ main = do
 
 The above program produces the following bmp images (wedgeAnnulus.bmp).
 
-![GitHub Logo](/images/wedgeAnnulus.bmp)
+![wedge annulus](/images/wedgeAnnulus.bmp)
 
 ## Boolean image (aka Region) Algebra
