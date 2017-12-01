@@ -360,7 +360,7 @@ rotateUSquareFilter = ("rotateUSquareFilter.bmp",  BImage.Generator.uSquare . Fi
 produce the following images:
 
 ![translateUSquareFilter](/images/translateUSquareFilter.bmp)
-![hTranslateUSquareFilter](/images/hTranslateUSquare.Filterbmp)
+![hTranslateUSquareFilter](/images/hTranslateUSquareFilter.bmp)
 ![vTranslateUSquareFilter](/images/vTranslateUSquareFilter.bmp)
 ![scaleUSquareFilter](/images/scaleUSquareFilter.bmp)
 ![hScaleUSquareFilter](/images/hScaleUSquareFilter.bmp)
