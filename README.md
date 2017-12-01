@@ -6,12 +6,15 @@ Functional Image (squeleton)
 *Boolean images* are simply functions from infinite 2D spaces to black and white
 colors with opacity.
 
-Module `Data.FImage.BImage` defines type `BImage`as follows:
+Module `Data.FImage.BImage` defines type the `BImage` as follows:
 ```haskell
 type BImage = Point.Point -> Bool
 ```
 where `Point` is the type of Cartesian coordinates (defined in
-`Data.FImage.Geometry.Point`). 
+`Data.FImage.Geometry.Point`):
+```haskell
+data Point = Point { x :: Float, y :: Float } deriving (Show, Eq, Ord)
+```
 
 ## Example
 
