@@ -221,44 +221,86 @@ rotate :: Float -> Transform
 ```
 The following functions (see testing program `FImage` in `src`):
 ```haskell
-translateUSquare :: (String, BImage.BImage)
-translateUSquare = ("translateUSquare.bmp",  BImage.Generator.uSquare . Transform.translate v)
+translateUSquareTransform :: (String, BImage.BImage)
+translateUSquareTransform = ("translateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.translate v)
   where
     v = Vector.mk 2 3
 
-hTranslateUSquare :: (String, BImage.BImage)
-hTranslateUSquare =  ("hTranslateUSquare.bmp",  BImage.Generator.uSquare . Transform.hTranslate 3)
+hTranslateUSquareTransform :: (String, BImage.BImage)
+hTranslateUSquareTransform =  ("hTranslateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.hTranslate 3)
 
-vTranslateUSquare :: (String, BImage.BImage)
-vTranslateUSquare =  ("vTranslateUSquare.bmp",  BImage.Generator.uSquare . Transform.vTranslate 3)
+vTranslateUSquareTransform :: (String, BImage.BImage)
+vTranslateUSquareTransform =  ("vTranslateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.vTranslate 3)
 
-scaleUSquare :: (String, BImage.BImage)
-scaleUSquare = ("scaleUSquare.bmp",  BImage.Generator.uSquare . Transform.scale v)
+scaleUSquareTransform :: (String, BImage.BImage)
+scaleUSquareTransform = ("scaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.scale v)
   where
     v = Vector.mk 2 3
 
-hScaleUSquare :: (String, BImage.BImage)
-hScaleUSquare = ("hScaleUSquare.bmp",  BImage.Generator.uSquare . Transform.hScale 3)
+hScaleUSquareTransform :: (String, BImage.BImage)
+hScaleUSquareTransform = ("hScaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.hScale 3)
 
-vScaleUSquare :: (String, BImage.BImage)
-vScaleUSquare = ("vScaleUSquare.bmp",  BImage.Generator.uSquare . Transform.vScale 3)
+vScaleUSquareTransform :: (String, BImage.BImage)
+vScaleUSquareTransform = ("vScaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.vScale 3)
 
-uScaleUSquare :: (String, BImage.BImage)
-uScaleUSquare = ("uScaleUSquare.bmp",  BImage.Generator.uSquare . Transform.uScale 2)
+uScaleUSquareTransform :: (String, BImage.BImage)
+uScaleUSquareTransform = ("uScaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.uScale 2)
 
-rotateUSquare :: (String, BImage.BImage)
-rotateUSquare = ("rotateUSquare.bmp",  BImage.Generator.uSquare . Transform.rotate (pi/4))
+rotateUSquareTransform :: (String, BImage.BImage)
+rotateUSquareTransform = ("rotateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.rotate (pi/4))
 ```
 produce the following images:
 
-![translateUSquare](/images/translateUSquare.bmp)
-![hTranslateUSquare](/images/hTranslateUSquare.bmp)
-![vTranslateUSquare](/images/vTranslateUSquare.bmp)
-![scaleUSquare](/images/scaleUSquare.bmp)
-![hScaleUSquare](/images/hScaleUSquare.bmp)
-![vScaleUSquare](/images/vScaleUSquare.bmp)
-![uScaleUSquare](/images/uScaleUSquare.bmp)
-![rotateUSquare](/images/rotateUSquare.bmp)
+![translateUSquareTransform](/images/translateUSquareTransform.bmp)
+![hTranslateUSquareTransform](/images/hTranslateUSquare.Transformbmp)
+![vTranslateUSquareTransform](/images/vTranslateUSquareTransform.bmp)
+![scaleUSquareTransform](/images/scaleUSquareTransform.bmp)
+![hScaleUSquareTransform](/images/hScaleUSquareTransform.bmp)
+![vScaleUSquareTransform](/images/vScaleUSquareTransform.bmp)
+![uScaleUSquareTransform](/images/uScaleUSquareTransform.bmp)
+![rotateUSquareTransform](/images/rotateUSquareTransform.bmp)
 
-,
-## Boolean image (aka Region) Algebra
+### Filtering
+
+The following functions (see testing program `FImage` in `src`):
+```haskell
+translateUSquareFilter :: (String, BImage.BImage)
+translateUSquareFilter = ("translateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.translate v)
+  where
+    v = Vector.mk 2 3
+
+hTranslateUSquareFilter :: (String, BImage.BImage)
+hTranslateUSquareFilter =  ("hTranslateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.hTranslate 3)
+
+vTranslateUSquareFilter :: (String, BImage.BImage)
+vTranslateUSquareFilter =  ("vTranslateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.vTranslate 3)
+
+scaleUSquareFilter :: (String, BImage.BImage)
+scaleUSquareFilter = ("scaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.scale v)
+  where
+    v = Vector.mk 2 3
+
+hScaleUSquareFilter :: (String, BImage.BImage)
+hScaleUSquareFilter = ("hScaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.hScale 3)
+
+vScaleUSquareFilter :: (String, BImage.BImage)
+vScaleUSquareFilter = ("vScaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.vScale 3)
+
+uScaleUSquareFilter :: (String, BImage.BImage)
+uScaleUSquareFilter = ("uScaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.uScale 2)
+
+rotateUSquareFilter :: (String, BImage.BImage)
+rotateUSquareFilter = ("rotateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.rotate (pi/4))
+```
+produce the following images:
+
+![translateUSquareFilter](/images/translateUSquareFilter.bmp)
+![hTranslateUSquareFilter](/images/hTranslateUSquare.Filterbmp)
+![vTranslateUSquareFilter](/images/vTranslateUSquareFilter.bmp)
+![scaleUSquareFilter](/images/scaleUSquareFilter.bmp)
+![hScaleUSquareFilter](/images/hScaleUSquareFilter.bmp)
+![vScaleUSquareFilter](/images/vScaleUSquareFilter.bmp)
+![uScaleUSquareFilter](/images/uScaleUSquareFilter.bmp)
+![rotateUSquareFilter](/images/rotateUSquareFilter.bmp)
+
+### Boolean image (aka Region) Algebra
