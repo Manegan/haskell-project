@@ -180,6 +180,7 @@ Obtained bitmap images are (with display parameters `View.mk0 8 8` and
 ![uHStrip](/images/uHStrip.bmp)
 ![vStrip](/images/vStrip.bmp)
 ![uVStrip](/images/uVStrip.bmp)
+![cross](/images/cross.bmp)
 ![checker](/images/checker.bmp)
 ![altRings](/images/altRings.bmp)
 ![disk](/images/disk.bmp)
