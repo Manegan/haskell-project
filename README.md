@@ -56,9 +56,9 @@ The above program produces the following bmp images (wedgeAnnulus.bmp).
 
 ## Modules
 
-### Geometry
+## Geometry
 
-#### Points
+### Points
 
 The module `Data.FImage.Geometry.Point` defines the `Point` type as follows
 ```haskell
@@ -67,7 +67,7 @@ data Point = Point { x :: Float, y :: Float }
 ```
 and provides two construction functions `mk`and `mk2`.
 
-#### Polar points
+### Polar points
 
 The module `Data.FImage.Geometry.PolarPoint` defines the `PolarPoint` type as
 follows
@@ -111,7 +111,7 @@ invY :: Vector -> Vector
 invXY :: Vector -> Vector
 ```
 
-#### Basic functions (**to be completed**)
+### Basic functions (**to be completed**)
 Basic geometric functions are defined in the module
 `Data.FImage.Geometry`.
 
