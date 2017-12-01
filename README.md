@@ -22,7 +22,7 @@ As a first example, consider the (infinite) checkered region:
 
 The trick is to take the floor of the pixel coordinates and test whether the sum
 is even or odd. Whenever ```x``` or ```y``` passes an integer value, the parity
-changes. (Function ```checker```is defined in `Data.FImage.BImage.Generator`).
+changes. (Function ```checker``` is defined in `Data.FImage.BImage.Generator`).
 
 ```haskell
 checker :: BImage.BImage
@@ -53,5 +53,44 @@ main = do
 The above program produces the following bmp images (wedgeAnnulus.bmp).
 
 ![wedge annulus](/images/wedgeAnnulus.bmp)
+
+## Modules
+
+### Geometry
+
+#### Points (module `Data.FImage.Geometry.Point`)
+
+```haskell
+module Data.FImage.Geometry.Point
+(
+  -- * type
+  Point(..)
+
+  -- * constructing
+, mk
+, mk2
+)
+where
+
+  -- | type definition
+  data Point = Point { x :: Float, y :: Float }
+               deriving (Show, Eq, Ord)
+
+  -- | Make a point '(x, y)'' from two floats 'x' and 'y'.
+  mk :: Float -> Float -> Point
+  mk px py = Point { x = px, y = py }
+
+  -- | Make a point '(x, y)'' from two floats 'x' and 'y'.
+  mk2 :: Float -> Point
+  mk2 z = mk z z
+```
+
+#### Polar points (module `Data.FImage.Geometry.PolarPoint`)
+
+#### Vectors (module `Data.FImage.Geometry.Vector`)
+
+#### Basic functions
+
+####
 
 ## Boolean image (aka Region) Algebra
