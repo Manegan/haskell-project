@@ -69,7 +69,8 @@ and provides two construction functions `mk`and `mk2`.
 
 #### Polar points
 
-The module `Data.FImage.Geometry.PolarPoint` defines the `PolarPoint` type as follows.
+The module `Data.FImage.Geometry.PolarPoint` defines the `PolarPoint` type as
+follows
 ```haskell
 data PolarPoint = PolarPoint { rho :: Float, theta :: Float }
                   deriving (Show, Eq, Ord)
@@ -83,7 +84,7 @@ The module `Data.FImage.Geometry.Vector` defined the `Vector` type as follows.
 data Vector = Vector { dx :: Float, dy :: Float }
               deriving (Show, Eq, Ord)
 ```
-**Define the following functions**:
+**Define the following functions in `Data.FImage.Geometry.Vector`**:
 ```haskell
 -- | Make a vector (dx, dy) from two floats `dx`and `dy`.
 mk :: Float -> Float -> Vector
@@ -110,7 +111,28 @@ invY :: Vector -> Vector
 invXY :: Vector -> Vector
 ```
 
-#### Basic functions
+#### Basic functions (**to be completed**)
+Basic geometric functions are defined in the module
+`Data.FImage.Geometry`.
+
+**Define the following functions in `Data.FImage.Geometry`**:
+```haskell
+
+import qualified Data.FImage.Geometry.Point      as Point
+import qualified Data.FImage.Geometry.PolarPoint as PolarPoint
+
+-- | Compute the distance betwen two points.
+dist :: Point.Point -> Point.Point -> Float
+
+-- | Compute the distance from a given point to the origin.
+distO :: Point.Point -> Float
+
+-- | Convert a polar point to a cartesian point.
+fromPolar :: PolarPoint.PolarPoint -> Point.Point
+
+-- | Convert a cartesian point to a polar point.
+toPolar :: Point.Point -> PolarPoint.PolarPoint
+```
 
 ####
 
