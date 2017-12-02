@@ -224,7 +224,7 @@ polarChecker :: (String, BImage.BImage)
 polarChecker = ("polarChecker.bmp", BImage.Generator.polarChecker 7)
 ```
 
-produce the following bitmaps (display parameters `View.mk0 6 6` and
+produce the following bitmaps (display parameters `View.mk0 8 8` and
 `Window.mk 256 256`):
 
 ![hStrip](/images/hStrip.bmp)
