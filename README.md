@@ -225,7 +225,7 @@ The type `Transform` is defined in module `Data.FImage.Transform` as follows:
 type Transform = BImage.BImage -> BImage.BImage
 ```
 
-`Transform` is provided as a friendly type, but most of the technical work
+`Transform` is provided as a friendly type, but most of the work
 is devoted to the type `TransformPoint` defined in module `Data.FImage.Transform`
 as follows:
 
@@ -281,14 +281,16 @@ uScale :: Float -> Transform
 rotate :: Float -> Transform
 ```
 
-Functions `translatePoint`, `scalePoint`, `uScalePoint`, and `rotatePoint`
+The type `TransformPoint`and the functions `translatePoint`, `scalePoint`,
+`uScalePoint`, and `rotatePoint`
 are not publically exposed by the `Data.FImage.Transform` module.
 
 The functions
 `translateUSquare 2 3`, `hTranslateUSquare 2`,
 `vTranslateUSquare 3`, `scaleUSquare 2 3`,
 `hScaleUSquare 2`, `vScaleUSquare 3`,
-`uScaleUSquare 3` and `rotateUSquare (pi / 4)`
+`uScaleUSquare 3`, `rotateUSquare (pi / 4)` and
+`rotateTranslateScaleUSquare (pi/4) 1 1 2 1`
 produce the following bitmaps (display parameters `View.mk0 8 8` and
 `Window.mk 256 256`):
 
@@ -300,6 +302,6 @@ produce the following bitmaps (display parameters `View.mk0 8 8` and
 ![vScaleUSquare](/images/vScaleUSquare.bmp)
 ![uScaleUSquare](/images/uScaleUSquare.bmp)
 ![rotateUSquare](/images/rotateUSquare.bmp)
-
+![rotateTranslateScaleUSquare](/images/rotateTranslateScaleUSquare.bmp)
 
 ## Boolean image (aka Region) Algebra
