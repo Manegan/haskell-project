@@ -242,130 +242,89 @@ produce the following bitmaps (display parameters `View.mk0 8 8` and
 
 ### Spatial transforms
 
-Spatial transforms are simply defined as space-to-space functions
-(transforms map points to points)
+Spatial transforms are simply defined as space-to-space functions.
 The type `Transform` is defined in module `Data.FImage.Transform` as follows:
 
 ```haskell
-import qualified Data.FImage.Geometry.Point  as Point
+-- | Boolean image transformation type definition.
+type Transform = BImage.BImage -> BImage.BImage
 ```
+
+`Transform` is provided as a friendly type, but most of the technical work
+is devoted to the type `TransformPoint` defined in module `Data.FImage.Transform`
+as follows:
+
+```haskell
+-- | Point transformation type definition.
+type TransformPoint = Point.Point -> Point.Point
+```
+
+In brief, `TransformPoint` operates locally whereas `Transform` operates at the
+image level.
 
 **Define the following functions in `Data.FImage.Transform`**:
 
 ```haskell
-type Transform = Point.Point -> Point.Point
+-- | Translate a point according to a given vector:
+-- translatePoint (dx, dy) (x, y) = (x + dx, y + dy)
+translatePoint :: Vector.Vector -> TransformPoint
 
--- | Translate according to a given vector (dx, dy).
+-- | Scale a point according to a given vector:
+-- scalePoint (dx, dy) (x, y) = (x * dx, y * dy).
+scalePoint :: Vector.Vector -> TransformPoint
+
+-- | Scale uniformaly a point according to a given float:
+-- uScalePoint f (x, y) = (f * x, f * y).
+uScalePoint :: Float -> TransformPoint
+
+-- | Rotate a point acoording to a given angle t:
+-- rotatePoint t (x, y) = (x cos(t) - y sint(t), x sin(t) + y cos(t)).
+rotatePoint :: Float -> TransformPoint
+
+-- | Translate a boolean image according to a vector.
 translate :: Vector.Vector -> Transform
 
--- | Horizontal translate according to a given float.
+-- | Translate horizontaly a boolean image according to a vector.
 hTranslate :: Float -> Transform
 
--- | Vertical translate according to a given float.
+-- | Translate verticaly a boolean image according to a vector.
 vTranslate :: Float -> Transform
 
--- | Scale according to a given vector (dx, dy).
+-- | Scale a boolean image according to a float.
 scale :: Vector.Vector -> Transform
 
--- | Horizontal translate according to a given float.
+-- | Scale horizontaly a boolean image according to a float.
 hScale :: Float -> Transform
 
--- | Vertical translate according to a given float.
+-- | Scale verticaly a boolean image according to a float.
 vScale :: Float -> Transform
 
--- | Scale according to a given vector (dx, dy) with dx = dy.
+-- | Scale uniformaly a boolean image according to a float.
 uScale :: Float -> Transform
 
--- | Rotate acoording to a given angle t.
--- For a given point (x, y) the roated point is defined by
--- (x cos(t) - y sint(t), x sin(t) + y cos(t)).
+-- | Rotate uniformaly a boolean image according to a float.
 rotate :: Float -> Transform
 ```
 
-The following functions (see testing program `FImage` in `src`):
+Functions `translatePoint`, `scalePoint`, `uScalePoint`, and `rotatePoint`
+are not publically exposed by the `Data.FImage.Transform` module.
 
-```haskell
-translateUSquareTransform :: (String, BImage.BImage)
-translateUSquareTransform = ("translateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.translate v)
-  where
-    v = Vector.mk 2 3
-
-hTranslateUSquareTransform :: (String, BImage.BImage)
-hTranslateUSquareTransform =  ("hTranslateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.hTranslate 3)
-
-vTranslateUSquareTransform :: (String, BImage.BImage)
-vTranslateUSquareTransform =  ("vTranslateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.vTranslate 3)
-
-scaleUSquareTransform :: (String, BImage.BImage)
-scaleUSquareTransform = ("scaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.scale v)
-  where
-    v = Vector.mk 2 3
-
-hScaleUSquareTransform :: (String, BImage.BImage)
-hScaleUSquareTransform = ("hScaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.hScale 3)
-
-vScaleUSquareTransform :: (String, BImage.BImage)
-vScaleUSquareTransform = ("vScaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.vScale 3)
-
-uScaleUSquareTransform :: (String, BImage.BImage)
-uScaleUSquareTransform = ("uScaleUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.uScale 2)
-
-rotateUSquareTransform :: (String, BImage.BImage)
-rotateUSquareTransform = ("rotateUSquareTransform.bmp",  BImage.Generator.uSquare . Transform.rotate (pi/4))
-```
-produce the following bitmaps (display parameters `View.mk0 6 6` and
+The functions
+`translateUSquare 2 3`, `hTranslateUSquare 2`,
+`vTranslateUSquare 3`, `scaleUSquare 2 3`,
+`hScaleUSquare 2`, `vScaleUSquare 3`,
+`uScaleUSquare 3` and `rotateUSquare (pi / 4)`
+produce the following bitmaps (display parameters `View.mk0 8 8` and
 `Window.mk 256 256`):
 
-![translateUSquareTransform](/images/translateUSquareTransform.bmp)
-![hTranslateUSquareTransform](/images/hTranslateUSquareTransform.bmp)
-![vTranslateUSquareTransform](/images/vTranslateUSquareTransform.bmp)
-![scaleUSquareTransform](/images/scaleUSquareTransform.bmp)
-![hScaleUSquareTransform](/images/hScaleUSquareTransform.bmp)
-![vScaleUSquareTransform](/images/vScaleUSquareTransform.bmp)
-![uScaleUSquareTransform](/images/uScaleUSquareTransform.bmp)
-![rotateUSquareTransform](/images/rotateUSquareTransform.bmp)
+![translateUSquare](/images/translateUSquare.bmp)
+![hTranslateUSquare](/images/hTranslateUSquare.bmp)
+![vTranslateUSquare](/images/vTranslateUSquare.bmp)
+![scaleUSquare](/images/scaleUSquare.bmp)
+![hScaleUSquare](/images/hScaleUSquare.bmp)
+![vScaleUSquare](/images/vScaleUSquare.bmp)
+![uScaleUSquare](/images/uScaleUSquare.bmp)
+![rotateUSquare](/images/rotateUSquare.bmp)
 
-### Filtering
-
-The following functions (see testing program `FImage` in `src`):
-```haskell
-translateUSquareFilter :: (String, BImage.BImage)
-translateUSquareFilter = ("translateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.translate v)
-  where
-    v = Vector.mk 2 3
-
-hTranslateUSquareFilter :: (String, BImage.BImage)
-hTranslateUSquareFilter =  ("hTranslateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.hTranslate 3)
-
-vTranslateUSquareFilter :: (String, BImage.BImage)
-vTranslateUSquareFilter =  ("vTranslateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.vTranslate 3)
-
-scaleUSquareFilter :: (String, BImage.BImage)
-scaleUSquareFilter = ("scaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.scale v)
-  where
-    v = Vector.mk 2 3
-
-hScaleUSquareFilter :: (String, BImage.BImage)
-hScaleUSquareFilter = ("hScaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.hScale 3)
-
-vScaleUSquareFilter :: (String, BImage.BImage)
-vScaleUSquareFilter = ("vScaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.vScale 3)
-
-uScaleUSquareFilter :: (String, BImage.BImage)
-uScaleUSquareFilter = ("uScaleUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.uScale 2)
-
-rotateUSquareFilter :: (String, BImage.BImage)
-rotateUSquareFilter = ("rotateUSquareFilter.bmp",  BImage.Generator.uSquare . Filter.rotate (pi/4))
-```
-produce the following images:
-
-![translateUSquareFilter](/images/translateUSquareFilter.bmp)
-![hTranslateUSquareFilter](/images/hTranslateUSquareFilter.bmp)
-![vTranslateUSquareFilter](/images/vTranslateUSquareFilter.bmp)
-![scaleUSquareFilter](/images/scaleUSquareFilter.bmp)
-![hScaleUSquareFilter](/images/hScaleUSquareFilter.bmp)
-![vScaleUSquareFilter](/images/vScaleUSquareFilter.bmp)
-![uScaleUSquareFilter](/images/uScaleUSquareFilter.bmp)
-![rotateUSquareFilter](/images/rotateUSquareFilter.bmp)
 
 ## Boolean image (aka Region) Algebra
