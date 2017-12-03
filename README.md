@@ -132,7 +132,7 @@ toPolar :: Point.Point -> PolarPoint.PolarPoint
 
 ### Generate basic boolean images (to be completed)
 
-The module `Data.FImage.BImage.Simple` contains simple (aka) boolean images.
+The module `Data.FImage.BImage.Simple` contains simple (aka atomic) boolean images.
 More advanced boolean images will soon be obtained by combining simple boolean
 images with high-order functions in `Data.FImage.Transform` and
 `Data.FImage.Transform`.
@@ -144,8 +144,14 @@ import qualified Data.FImage.BImage as BImage
 -- | Horizontal half plane at given y coordinate.
 hHalfPlane :: Float -> BImage.BImage
 
+-- | Horizontal half plane at y=0 coordinate.
+hHalfPlane0 :: BImage.BImage
+
 -- | Vertical half plane at given x coordinate.
 vHalfPlane :: Float -> BImage.BImage
+
+-- | Horizontal half plane at x=0 coordinate.
+vHalfPlane0 :: BImage.BImage
 
 -- | Infinitely horizontal strip of given width.
 hStrip :: Float -> BImage.BImage
@@ -186,7 +192,9 @@ polarChecker :: Float -> BImage.BImage
 
 The functions
 `BImage.Simple.hHalfPlane 1`,
+`BImage.Simple.hHalfPlane0`,
 `BImage.Simple.vHalfPlane 2`,
+`BImage.Simple.vHalfPlane0`,
 `BImage.Simple.hStrip 2`,
 `BImage.Simple.uHStrip`,
 `BImage.Simple.vStrip 2`,
@@ -204,7 +212,9 @@ produce the following bitmaps (display parameters `View.mk0 8 8` and
 `Window.mk 256 256`):
 
 ![hHalfPlane](/images/hHalfPlane.bmp)
+![hHalfPlane](/images/hHalfPlane0.bmp)
 ![vHalfPlane](/images/vHalfPlane.bmp)
+![vHalfPlane](/images/vHalfPlane0.bmp)
 ![hStrip](/images/hStrip.bmp)
 ![uHStrip](/images/uHStrip.bmp)
 ![vStrip](/images/vStrip.bmp)
