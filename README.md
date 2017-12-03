@@ -132,6 +132,11 @@ toPolar :: Point.Point -> PolarPoint.PolarPoint
 
 ### Generate basic boolean images (to be completed)
 
+The module `Data.FImage.BImage.Simple` contains simple (aka) boolean images.
+More advanced boolean images will soon be obtained by combining simple boolean
+images with high-order functions in `Data.FImage.Transform` and
+`Data.FImage.Transform`.
+
 **Define the following functions in `Data.FImage.BImage.Simple`**:
 ```haskell
 import qualified Data.FImage.BImage as BImage
