@@ -16,6 +16,11 @@ Procedure (in case of GitHub URL):
 > ./.cabal-sandbox/bin/fimage
 ```
 
+Bitmap rendering is delegated to the `bmp` haskell library
+(https://hackage.haskell.org/package/bmp).
+The `FImage.BMP` module is provided as a wrapper so that you can
+easily write bitmap images to disk.
+
 ## Introduction
 
 *Boolean images* (also called *regions*) are simply functions from infinite 2D
@@ -318,3 +323,92 @@ produce the following bitmaps (display parameters `View.mk0 8 8` and
 ![rotateTranslateScaleUSquare](/images/rotateTranslateScaleUSquare.bmp)
 
 ## Boolean image (aka Region) Algebra
+
+Regions of 2D-space (i.e. boolean images) are simply boolean-valued images.
+Set operations on regions are useful and easy to define.
+We define these set operations in the module
+`Data.FImage.Algebra`.
+
+**Define the following functions in `Data.FImage.Algebra`**:
+
+```haskell
+-- | The all-True boolean image.
+-- 'universe p = True'
+universe :: BImage.BImage
+
+-- | The all-False boolean image.
+-- 'empty p = False'.
+empty :: BImage.BImage
+
+-- | Complement a boolean image.
+-- `comp f p = True` iff 'f p = False'.
+comp :: BImage.BImage -> BImage.BImage
+
+-- | Intersection of two boolean images.
+-- 'inter f g p = True' iff 'f p = True' and 'g p = True'.
+inter :: BImage.BImage -> BImage.BImage -> BImage.BImage
+
+-- | Union of two boolean images.
+-- 'union f g p = True' iff 'f p = True' or 'g p = True'.
+union :: BImage.BImage -> BImage.BImage -> BImage.BImage
+
+-- | Xor of two boolean images.
+-- 'xor f g p = True' iff 'f p /= g p'.
+xor :: BImage.BImage -> BImage.BImage -> BImage.BImage
+
+-- | diff.
+-- 'diff f g p = True' iff 'f p = True' and 'g p = False'.
+diff :: BImage.BImage -> BImage.BImage -> BImage.BImage
+```
+Teacher's advice: you may find useful to use the lift
+functions defined in the module `Data.FImage.Lift`
+(but this is not mandatory).
+
+```haskell
+module Data.FImage.Lift
+(
+  lift1
+, lift2
+, lift3
+)
+where
+
+  lift1 :: (a -> b) -> (p -> a) -> p -> b
+  lift1 g f1 p = g (f1 p)
+
+  lift2 :: (a -> b -> c) -> (p -> a) -> (p -> b) -> p -> c
+  lift2 g f1 f2 p = g (f1 p) (f2 p)
+
+  lift3 :: (a -> b -> c -> d) -> (p -> a) -> (p -> b) -> (p -> c) -> p -> d
+  lift3 g f1 f2 f3 p = g (f1 p) (f2 p) (f3 p)
+```
+
+The functions
+`BImage.Gallery.diamond 2 3`, `BImage.Gallery.diamond 3 2`,
+`BImage.Gallery.oval 2 3` and `BImage.Gallery.oval 3 2`
+produce the following bitmaps (display parameters `View.mk0 8 8` and
+`Window.mk 256 256`):
+
+![diamond1](/images/diamond1.bmp)
+![diamond2](/images/diamond2.bmp)
+![oval1](/images/oval1.bmp)
+![oval2](/images/oval2.bmp)
+
+## Combining everything
+
+You are now ready to combine transformations
+(`Data.FImage.Transform`) and algebra
+(`Data.FImage.Algebra`) to obtain surprising boolean images.
+
+![annulus](/images/annulus.bmp)
+![checkerDisk](/images/checkerDisk.bmp)
+![checkerSquare](/images/checkerSquare.bmp)
+![checkerAnnulus](/images/checkerAnnulus.bmp)
+![octogon](/images/octogon.bmp)
+![xorCircles2](/images/xorCircles2.bmp)
+![checkerXORCircles2](/images/checkerXORCircles2.bmp)
+![xorCircles4](/images/xorCircles4.bmp)
+![xorCircles8](/images/xorCircles8.bmp)
+![eclipse](/images/eclipse.bmp)
+![lineCircles](/images/lineCircles.bmp)
+![timeTunnel](/images/timeTunnel.bmp)
