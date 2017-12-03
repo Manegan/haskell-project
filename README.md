@@ -416,3 +416,5 @@ You are now ready to combine transformations
 ## Animation
 
 Combine a collection of boolean images into a movie.
+
+!::[swirl](/videos/swirl.mpeg)
