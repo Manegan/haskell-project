@@ -12,6 +12,7 @@ where
                        , height :: Int
                        } deriving (Show)
 
+  -- | Make a window from two integers (width and height).
   mk :: Int -> Int -> Window
   mk w h
     | w <= 0    = error "0-width window"
