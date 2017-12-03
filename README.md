@@ -186,6 +186,8 @@ polarChecker :: Float -> BImage.BImage
 ```
 
 The functions
+`BImage.Simple.hHalfPlane 1`,
+`BImage.Simple.vHalfPlane 2`,
 `BImage.Generator.hStrip 2`,
 `BImage.Generator.uHStrip`,
 `BImage.Generator.vStrip 2`,
@@ -202,6 +204,8 @@ The functions
 produce the following bitmaps (display parameters `View.mk0 8 8` and
 `Window.mk 256 256`):
 
+![hHalfPlane](/images/hHalfPlane.bmp)
+![vHalfPlane](/images/vHalfPlane.bmp)
 ![hStrip](/images/hStrip.bmp)
 ![uHStrip](/images/uHStrip.bmp)
 ![vStrip](/images/vStrip.bmp)
