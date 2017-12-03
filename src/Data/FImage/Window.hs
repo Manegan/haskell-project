@@ -8,6 +8,7 @@ module Data.FImage.Window
 )
 where
 
+  -- | Window type definition.
   data Window = Window { width  :: Int
                        , height :: Int
                        } deriving (Show)

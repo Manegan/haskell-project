@@ -18,6 +18,7 @@ where
 
   import qualified Data.FImage.Geometry.Point as Point
 
+  -- | View type definition.
   data View = View { lowerLeft  :: Point.Point
                    , upperRight :: Point.Point
                    } deriving (Show)
