@@ -37,7 +37,7 @@ As a first example, consider the (infinite) checkered region:
 
 The trick is to take the floor of the pixel coordinates and test whether the sum
 is even or odd. Whenever ```x``` or ```y``` passes an integer value, the parity
-changes. (Function ```checker``` is defined in `Data.FImage.BImage.Generator`).
+changes. (Function ```checker``` is defined in `Data.FImage.BImage.Simple`).
 
 ```haskell
 checker :: BImage.BImage
@@ -60,6 +60,7 @@ data Point = Point { x :: Float, y :: Float }
              deriving (Show, Eq, Ord)
 ```
 and provides two construction functions `mk`and `mk2`.
+The module is complete.
 
 ### Polar points
 
@@ -70,6 +71,7 @@ data PolarPoint = PolarPoint { rho :: Float, theta :: Float }
                   deriving (Show, Eq, Ord)
 ```
 together with a convenient construction function `mk`.
+The module is complete.
 
 ### Vectors (**to be completed**)
 
@@ -130,7 +132,7 @@ toPolar :: Point.Point -> PolarPoint.PolarPoint
 
 ### Generate basic boolean images (to be completed)
 
-**Define the following functions in `Data.FImage.BImage.Generator`**:
+**Define the following functions in `Data.FImage.BImage.Simple`**:
 ```haskell
 import qualified Data.FImage.BImage as BImage
 
@@ -180,18 +182,18 @@ polarChecker :: Float -> BImage.BImage
 The functions
 `BImage.Simple.hHalfPlane 1`,
 `BImage.Simple.vHalfPlane 2`,
-`BImage.Generator.hStrip 2`,
-`BImage.Generator.uHStrip`,
-`BImage.Generator.vStrip 2`,
-`BImage.Generator.uVStrip`,
-`BImage.Generator.cross 2`,
-`BImage.Generator.checker`,
-`BImage.Generator.altRings`,
-`BImage.Generator.disk 2`,
-`BImage.Generator.uDisk`,
-`BImage.Generator.square 2`,
-`BImage.Generator.uSquare` and
-`BImage.Generator.polarChecker 7`
+`BImage.Simple.hStrip 2`,
+`BImage.Simple.uHStrip`,
+`BImage.Simple.vStrip 2`,
+`BImage.Simple.uVStrip`,
+`BImage.Simple.cross 2`,
+`BImage.Simple.checker`,
+`BImage.Simple.altRings`,
+`BImage.Simple.disk 2`,
+`BImage.Simple.uDisk`,
+`BImage.Simple.square 2`,
+`BImage.Simple.uSquare` and
+`BImage.Simple.polarChecker 7`
 (see testing program `FImage` in `src`):
 produce the following bitmaps (display parameters `View.mk0 8 8` and
 `Window.mk 256 256`):
