@@ -417,4 +417,5 @@ You are now ready to combine transformations
 
 Combine a collection of boolean images into a movie.
 
+[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://igm.univ-mlv.fr/~vialette/swirl.mpeg)
 !::[swirl](/videos/swirl.mpeg)
