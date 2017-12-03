@@ -148,7 +148,13 @@ toPolar :: Point.Point -> PolarPoint.PolarPoint
 ```haskell
 import qualified Data.FImage.BImage as BImage
 
--- | Infinitely horizontal strip of  given width.
+-- | Horizontal half plane at given y coordinate.
+hHalfPlane :: Float -> BImage.BImage
+
+-- | Vertical half plane at given x coordinate.
+vHalfPlane :: Float -> BImage.BImage
+
+-- | Infinitely horizontal strip of given width.
 hStrip :: Float -> BImage.BImage
 
 -- | Infinitely horizontal strip of unit width.
