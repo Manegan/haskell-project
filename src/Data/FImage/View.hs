@@ -22,33 +22,26 @@ where
                    , upperRight :: Point.Point
                    } deriving (Show)
 
+  -- | Make an axis-parallel view from the lower-left point and the
+  -- upper-right point.d
   mk :: Point.Point -> Point.Point -> View
-  mk ll ur
-    | x > x'    = error "View error"
-    | y > y'    = error "View error"
-    | otherwise = View { lowerLeft = ll, upperRight = ur }
-    where
-      x  = Point.x ll
-      y  = Point.y ll
 
-      x' = Point.x ur
-      y' = Point.y ur
-
+  -- | Make an 0center axis-parallel view from two floats (width and height).
   mk0 :: Float -> Float -> View
-  mk0 w h = mk ll ur
-    where
-      ll = Point.mk (-w/2) (-h/2)
-      ur = Point.mk (w/2)  (h/2)
 
+  -- | min x value.
   xMin :: View -> Float
   xMin = Point.x . lowerLeft
 
+  -- | min y value.
   yMin :: View -> Float
   yMin = Point.y . lowerLeft
 
+  -- | yMax x value.
   xMax :: View -> Float
   xMax = Point.x . upperRight
 
+  -- | max y value.
   yMax :: View -> Float
   yMax = Point.x . upperRight
 
