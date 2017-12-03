@@ -1,8 +1,13 @@
 # fimage-squeleton
 Functional Image (squeleton)
 
-##
+## Evaluation
 
+Due date: xxx
+
+Format: either as a zip or a GitHub URL
+
+Procedure (in case of GitHub URL):
 ```sh
 > git clone git@github.com:your-name/fimage.git
 > cd fimage
@@ -42,29 +47,10 @@ checker p = even (x' + y')
     y' = fromIntegral . floor $ Point.y p
 ```
 
-## Example
-
-```haskell
-import qualified Data.FImage.BImage.Generator as BImage.Generator
-import qualified Data.FImage.BMP              as BMP
-import qualified Data.FImage.View             as View
-import qualified Data.FImage.Window           as Window
-
-main :: IO ()
-main = do
-  let image    = BImage.Generator.wedgeAnnulus 0.27 7 -- generate a functional image
-  let view     = View.mk0 3.0 3.0                     -- focus -1.5 <= x <= 1.5 and -1.5 <= y <= 1.5
-  let window   = Window.mk 256 256                    -- render a 256x256 bitmap image
-  let bmp      = BMP.bmp window view image            -- generate a Codec.BMP.BMP bitmap image
-  let filename = "wedgeAnnulus.bmp"                   -- bitmap filename
-  BMP.write filename bmp                              -- write wedgeAnnulus.bmp to disk
-```
-
-The above program produces the following bmp images (wedgeAnnulus.bmp).
-
-![wedge annulus](/images/wedgeAnnulus.bmp)
-
 ## Modules
+
+First, comment out all calls in the `Main`function of testing program `FImage`
+in `src`.
 
 ### Points
 
