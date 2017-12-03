@@ -412,3 +412,7 @@ You are now ready to combine transformations
 ![eclipse](/images/eclipse.bmp)
 ![lineCircles](/images/lineCircles.bmp)
 ![timeTunnel](/images/timeTunnel.bmp)
+
+## Animation
+
+Combine a collection of boolean images into a movie.
