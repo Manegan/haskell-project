@@ -416,5 +416,5 @@ You are now ready to combine transformations
 ## Animation
 
 Transform a collection of boolean images into a movie.
-
-![Watch the video](http://igm.univ-mlv.fr/~vialette/teaching/2017-2018/Haskell/Project/swirl.mpeg)
+Watch the video at
+http://igm.univ-mlv.fr/~vialette/teaching/2017-2018/Haskell/Project/swirl.mpeg.
