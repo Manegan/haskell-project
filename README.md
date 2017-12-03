@@ -373,12 +373,15 @@ module Data.FImage.Lift
 )
 where
 
+  -- | Lift one level.
   lift1 :: (a -> b) -> (p -> a) -> p -> b
   lift1 g f1 p = g (f1 p)
 
+  -- | Lift two levels.
   lift2 :: (a -> b -> c) -> (p -> a) -> (p -> b) -> p -> c
   lift2 g f1 f2 p = g (f1 p) (f2 p)
 
+  -- | Lift three levels.
   lift3 :: (a -> b -> c -> d) -> (p -> a) -> (p -> b) -> (p -> c) -> p -> d
   lift3 g f1 f2 f3 p = g (f1 p) (f2 p) (f3 p)
 ```
@@ -418,3 +421,31 @@ You are now ready to combine transformations
 Transform a collection of boolean images into a movie.
 Watch the video at
 http://igm.univ-mlv.fr/~vialette/teaching/2017-2018/Haskell/Project/swirl.mpeg.
+
+## What do to now ?
+
+It is useful to generalise the semantic model of images so that the range of
+an image is not necessarily `Bool` but an arbitrary type.
+Fot this reason `Image` is really a type constructor:
+
+```haskell
+type Image a -> Point.Point -> a
+```
+
+### Color images
+
+```haskell
+data Color = Color { redBeam   :: Float
+                   , greenBeam :: Float
+                   , BlueBean  :: Float
+                   , alpha     :: Float
+                   } deriving (Eq, Ord)
+
+type ColorImage = Image Color
+```
+
+### Grey images
+
+```haskell
+type ColorImage = Image Float
+```

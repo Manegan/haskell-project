@@ -14,6 +14,6 @@ where
   lift2 :: (a -> b -> c) -> (p -> a) -> (p -> b) -> p -> c
   lift2 g f1 f2 p = g (f1 p) (f2 p)
 
-  -- | Lift treh levels.
+  -- | Lift three levels.
   lift3 :: (a -> b -> c -> d) -> (p -> a) -> (p -> b) -> (p -> c) -> p -> d
   lift3 g f1 f2 f3 p = g (f1 p) (f2 p) (f3 p)
