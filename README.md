@@ -1,6 +1,8 @@
 # fimage-squeleton
 Functional Image (squeleton)
 
+Sujet original de S. Vialette (https://github.com/Vialette/FImage-squeleton)
+
 ## Evaluation
 
 Due date: xxx
